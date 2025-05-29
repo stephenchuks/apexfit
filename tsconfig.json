@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "@ui/*": ["packages/ui/src/*"],
+      "@schemas/*": ["packages/schemas/src/*"],
+      "@api-client/*": ["packages/api-client/src/*"]
+    }
+  },
+  "include": ["apps/**/*", "packages/**/*"]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@apexfit/ui",
+  "private": true,
+  "version": "0.0.1",
+  "main": "Button.tsx",
+  "types": "Button.tsx",
+  "typesVersions": {
+    "*": {
+      "Button": ["Button.native.tsx"]
+    }
+  }
+}

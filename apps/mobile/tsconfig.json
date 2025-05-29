@@ -1,0 +1,21 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@ui": ["../../packages/ui"],
+      "@ui/*": ["../../packages/ui/*"],
+      "@schemas/*": ["../../packages/schemas/*"],
+      "@api-client/*": ["../../packages/api-client/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "nativewind/types"
+  ]
+}
