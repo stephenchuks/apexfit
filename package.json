@@ -5,9 +5,14 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
     "@tailwindcss/postcss": "^4.1.8",
+    "@types/react-native": "^0.73.0",
     "autoprefixer": "^10.4.21",
+    "babel-plugin-module-resolver": "^5.0.2",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "typescript": "~5.8.3"
   }
 }

@@ -1,21 +1,26 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@ui": ["../../packages/ui"],
-      "@ui/*": ["../../packages/ui/*"],
-      "@schemas/*": ["../../packages/schemas/*"],
-      "@api-client/*": ["../../packages/api-client/*"]
-    }
+      "@/*": [
+        "app/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "outDir": "dist",
+    "types": [
+      "react",
+      "react-native"
+    ]
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "./**/*",
+    "../../packages/**/*",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "nativewind/types"
+    "expo-env.d.ts"
   ]
 }

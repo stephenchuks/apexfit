@@ -1,45 +1,63 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Tabs } from 'expo-router';
+import { Platform, useColorScheme } from 'react-native';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+// Example color schemes
+const colors = {
+  light: {
+    text: '#000',
+    background: '#fff',
+    tint: '#0d9488',
+    icon: '#64748b',
+    tabIconDefault: '#aaa',
+    tabIconSelected: '#0d9488'
+  },
+  dark: {
+    text: '#fff',
+    background: '#222',
+    tint: '#0d9488',
+    icon: '#64748b',
+    tabIconDefault: '#444',
+    tabIconSelected: '#0d9488'
+  }
+};
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function Layout() {
+  const colorScheme = useColorScheme() as 'light' | 'dark';
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarActiveTintColor: colors[colorScheme].tabIconSelected,
+        tabBarInactiveTintColor: colors[colorScheme].tabIconDefault,
+        tabBarStyle: {
+          backgroundColor: colors[colorScheme].background
+        },
+        tabBarIcon: ({ color }: { color: string }) => (
+          // Replace with your icon component
+          <YourIconComponent color={color} />
+        )
+      }}
+    >
+      {/* Example tab screens */}
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => (
+            // Replace with your icon component
+            <YourIconComponent color={color} />
+          )
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+      {/* Add other Tabs.Screen components as needed */}
     </Tabs>
   );
+}
+
+// Dummy Icon Component for demonstration
+function YourIconComponent({ color }: { color: string }) {
+  // Replace with your actual icon implementation
+  return <></>;
 }
